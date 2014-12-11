@@ -1,21 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @user.name %></h1>
-<%= link_to 'Follow a user', '#', :class => "btn btn-default" %>
 <%= link_to 'Change name', edit_user_path(@user), :class => "btn btn-default" %>
 <hr>
 <p>Following: <%= @user.following.count %> | Followers: <%= @user.followers.count %></p>
 
-<h2>Users:</h2>
+<h2>Other Users:</h2>
 <hr>
 <% @users.each do |user| %>
-<div class="row">
-    <div class="col-md-2">
-        <%= link_to "#{user.name}", user %>
-    </div>
-    <div class="col-md-2">
-        
-    </div>
-</div>
-<hr>
+    <% if user.name != @user.name %>
+        <div class="row">
+            <div class="col-md-2">
+                <%= link_to "#{user.name}", user %>
+            </div>
+            <div class="col-md-2">
+                <% if @user.following.include?(user) %>
+                    <%= button_to "Unfollow", @user.unfollow(user), :class => "btn btn-sm btn-danger"  %>
+                <% else %>
+                    <%= button_to "Follow", @user.follow(user), :class => "btn btn-success"  %>
+                <% end %>
+            </div>
+        </div>
+        <hr>
+    <% end %>
 <% end %>
