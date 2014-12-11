@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @user.name %></h1>
-</p>
 <%= link_to 'Follow a user', '#', :class => "btn btn-default" %>
 <%= link_to 'Change name', edit_user_path(@user), :class => "btn btn-default" %>
+<hr>
+<p>Following: <%= @user.following.count %> | Followers: <%= @user.followers.count %></p>
+
 <h2>Users followed:</h2>
