@@ -6,8 +6,16 @@
 <hr>
 <p>Following: <%= @user.following.count %> | Followers: <%= @user.followers.count %></p>
 
-<h2>Users followed:</h2>
-<% @user.following.each do |following| %>
-    <%= link_to "#{following.name}", following %>
-    <hr>
+<h2>Users:</h2>
+<hr>
+<% @users.each do |user| %>
+<div class="row">
+    <div class="col-md-2">
+        <%= link_to "#{user.name}", user %>
+    </div>
+    <div class="col-md-2">
+        
+    </div>
+</div>
+<hr>
 <% end %>
