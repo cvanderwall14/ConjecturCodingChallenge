@@ -2,6 +2,6 @@
 
 <h1><%= @user.name %></h1>
 </p>
+<%= link_to 'Follow a user', '#', :class => "btn btn-default" %>
 <%= link_to 'Change name', edit_user_path(@user), :class => "btn btn-default" %>
-<%= link_to 'Follow user', :class => "btn btn-default" %>
 <h2>Users followed:</h2>
