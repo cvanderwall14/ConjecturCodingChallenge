@@ -15,9 +15,9 @@
             </div>
             <div class="col-md-2">
                 <% if @user.following.include?(user) %>
-                    <%= button_to "Unfollow", @user.unfollow(user), :class => "btn btn-sm btn-danger"  %>
+                    <%= button_to "Unfollow", @user.unfollow(user), :method => :delete, :class => "btn btn-sm btn-danger"  %>
                 <% else %>
-                    <%= button_to "Follow", @user.follow(user), :class => "btn btn-success"  %>
+                    <%= button_to "Follow", @user.follow(user), :method => :put, :class => "btn btn-success"  %>
                 <% end %>
             </div>
         </div>

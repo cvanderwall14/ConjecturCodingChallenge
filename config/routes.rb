@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'users#index'
   
+  post 'relationships/:id' => 'relationships#create'
+  
 
   resources :users do
     member do
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :relationships,       only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
