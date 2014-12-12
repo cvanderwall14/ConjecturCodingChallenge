@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   #post 'relationships/:id' => 'relationships#create'
   post 'relationships/:followed_id/:follower_id' => 'relationships#create', as: :follow
-  delete 'relationships/:followed_id/:follower_id' => 'relationships#delete', as: :unfollow
+  delete 'relationships/:followed_id/:follower_id' => 'relationships#destroy', as: :unfollow
   
 
   resources :users do
