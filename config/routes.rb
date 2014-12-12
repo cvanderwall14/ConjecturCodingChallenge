@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'users#index'
   
   #post 'relationships/:id' => 'relationships#create'
-  post 'relationships/:followed_id/:follower_id' => 'relationships#create', as: :follow
-  delete 'relationships/:followed_id/:follower_id' => 'relationships#destroy', as: :unfollow
+  post 'relationships/:follower_id/:followed_id' => 'relationships#create', as: :follow
+  delete 'relationships/:follower_id/:followed_id' => 'relationships#destroy', as: :unfollow
   
 
   resources :users do

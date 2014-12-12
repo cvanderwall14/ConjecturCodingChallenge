@@ -9,8 +9,8 @@ class RelationshipsController < ApplicationController
 
   def destroy
     rel = Relationship.find_by(follower_id: params[:follower_id], followed_id: params[:followed_id])
-    rel.destroy
-    redirect_to root
+    rel.destroy if rel
+    redirect_to root_path
   end
 
 end
